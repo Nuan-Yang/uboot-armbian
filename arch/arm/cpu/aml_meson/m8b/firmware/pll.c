@@ -23,7 +23,7 @@ unsigned long    clk_util_clk_msr(unsigned long   clk_mux)
 		P_MSR_CLK_REG0);
 
 	//dummy read
-	{ dummy_rd = readl(P_MSR_CLK_REG0); }
+	//{ dummy_rd = readl(P_MSR_CLK_REG0); }
 
 	//Wait for the measurement to be done
 	while( (readl(P_MSR_CLK_REG0) & (1 << 31)) ) {}

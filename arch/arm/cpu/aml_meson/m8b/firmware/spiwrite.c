@@ -18,7 +18,7 @@ STATIC_PREFIX int SPI_page_program(unsigned * addr_source, unsigned spi_addr, in
    //int temp_bl,i; //variable ‘temp_bl’ set but not used
    
    temp_addr = spi_addr;
-   temp_bl = byte_length;
+   //temp_bl = byte_length;
    if(byte_length&0x1f)
         return -1;
    ///remove SPI nor from AHB bus)
@@ -27,7 +27,7 @@ STATIC_PREFIX int SPI_page_program(unsigned * addr_source, unsigned spi_addr, in
    {
         writel(((temp_addr+spi_addr) & 0xffffff)|( 32 << SPI_FLASH_BYTES_LEN ),
             P_SPI_FLASH_ADDR);
-        for(i=0;i<8;i++)
+        for(int i=0;i<8;i++)
         {
             writel(*addr_source++,P_SPI_FLASH_C0+(i<<2));
         }

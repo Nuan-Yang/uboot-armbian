@@ -1167,7 +1167,7 @@ STATIC_PREFIX void send_read_cmd(unsigned src, unsigned ext, unsigned ce)
 {
 	//int  /*chip_num,*/ plane_mode; //variable ‘plane_mode’ set but not used
 	/* unsigned int nand_read_info; */
-	struct nand_page0_info_t *page0_info = (struct nand_page0_info_t *)((NAND_TEMP_BUF+384)-sizeof(struct nand_page0_info_t));
+	//struct nand_page0_info_t *page0_info = (struct nand_page0_info_t *)((NAND_TEMP_BUF+384)-sizeof(struct nand_page0_info_t));
 
 	/* nand_read_info = *(volatile unsigned int *)(NAND_TEMP_BUF+sizeof(int)+sizeof(int) + sizeof(int) ); */
 	//plane_mode = (page0_info->nand_read_info >> 2) & 0x1;

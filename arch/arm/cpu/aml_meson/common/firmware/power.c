@@ -1445,7 +1445,7 @@ static int pwm_duty_cycle_set(int duty_high,int duty_total)
     }
     aml_write_reg32(P_PWM_PWM_D, (duty_high << 16) | (duty_total-duty_high));
     __udelay(100000);
-    pwm_reg = aml_read_reg32(P_PWM_PWM_D);
+    //pwm_reg = aml_read_reg32(P_PWM_PWM_D);
     //serial_puts("##### P_PWM_PWM_D value = ");
     //serial_put_hex(pwm_reg, 32);
     //serial_puts("\n");
