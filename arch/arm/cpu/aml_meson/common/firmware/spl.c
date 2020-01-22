@@ -155,7 +155,7 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 #endif //AML_M6_JTAG_ENABLE
 
 	//temp add
-	serial_init(readl(P_UART_CONTROL(UART_PORT_CONS))|UART_CNTL_MASK_TX_EN|UART_CNTL_MASK_RX_EN);
+	//serial_init(readl(P_UART_CONTROL(UART_PORT_CONS))|UART_CNTL_MASK_TX_EN|UART_CNTL_MASK_RX_EN);
 
 	//Note: Following msg is used to calculate romcode boot time
 	//         Please DO NOT remove it!
