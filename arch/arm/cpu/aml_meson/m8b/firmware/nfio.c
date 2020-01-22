@@ -956,8 +956,8 @@ STATIC_PREFIX void send_plane0_cmd(unsigned page, unsigned ext, unsigned ce)
 	struct nand_page0_info_t *page0_info = (struct nand_page0_info_t *)((NAND_TEMP_BUF+384)-sizeof(struct nand_page0_info_t));
 
 	/* page0_info->nand_read_info = *(volatile unsigned int *)(NAND_TEMP_BUF+sizeof(int)+sizeof(int) + sizeof(int) ); */
-	plane_mode = (page0_info->nand_read_info >> 2) & 0x1;
-	ran_mode = (page0_info->nand_read_info >> 3) & 0x1;
+	//plane_mode = (page0_info->nand_read_info >> 2) & 0x1;
+	//ran_mode = (page0_info->nand_read_info >> 3) & 0x1;
 	micron_nand_flag = (page0_info->nand_read_info >> 4) & 0x1;
 	/* pages_in_block = *(volatile int *)(NAND_TEMP_BUF + sizeof(int)); */
 
@@ -1102,14 +1102,14 @@ STATIC_PREFIX void send_plane1_cmd(unsigned page, unsigned ext, unsigned ce)
 	struct nand_page0_info_t *page0_info = (struct nand_page0_info_t *)((NAND_TEMP_BUF+384)-sizeof(struct nand_page0_info_t));
 
 	/* nand_read_info = *(volatile unsigned int *)(NAND_TEMP_BUF+sizeof(int)+sizeof(int) + sizeof(int) ); */
-	plane_mode = (page0_info->nand_read_info >> 2) & 0x1;
+	//plane_mode = (page0_info->nand_read_info >> 2) & 0x1;
 	micron_nand_flag = (page0_info->nand_read_info >> 4) & 0x1;
 	/* pages_in_block = *(volatile int *)(NAND_TEMP_BUF + sizeof(int)); */
 
 	blk_num = page / page0_info->pages_in_block;
 	page_in_blk = page - blk_num * page0_info->pages_in_block;
 	blk_num <<= 1;
-	plane0 = blk_num * page0_info->pages_in_block + page_in_blk;
+	//plane0 = blk_num * page0_info->pages_in_block + page_in_blk;
 	plane1 = (blk_num + 1) * page0_info->pages_in_block + page_in_blk;
 
 	if (micron_nand_flag) {
@@ -1170,7 +1170,7 @@ STATIC_PREFIX void send_read_cmd(unsigned src, unsigned ext, unsigned ce)
 	struct nand_page0_info_t *page0_info = (struct nand_page0_info_t *)((NAND_TEMP_BUF+384)-sizeof(struct nand_page0_info_t));
 
 	/* nand_read_info = *(volatile unsigned int *)(NAND_TEMP_BUF+sizeof(int)+sizeof(int) + sizeof(int) ); */
-	plane_mode = (page0_info->nand_read_info >> 2) & 0x1;
+	//plane_mode = (page0_info->nand_read_info >> 2) & 0x1;
 
 	/* add A2H command for SLC read */
 	if ((ext>>24)&1) {
@@ -1376,12 +1376,12 @@ STATIC_PREFIX short nf_normal_read_page_hwctrl(unsigned page, unsigned  mem, uns
 
 	if ((ecc_mode >= 2) && (pages >= 8)) {
 		/* serial_puts("new oob here\n"); */
-		newoobtype = 1;
+		//newoobtype = 1;
 		extra_len = 2;
 	}
 	else{
 		extra_len = 0;
-		newoobtype = 0;
+		//newoobtype = 0;
 	}
 	writel(info_adr, P_NAND_IADR);
 	for (k = 0; k < pages + extra_len; k++) {
