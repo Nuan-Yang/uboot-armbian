@@ -15,7 +15,7 @@ STATIC_PREFIX int SPI_page_program(unsigned * addr_source, unsigned spi_addr, in
 {
    //unsigned temp;
    unsigned temp_addr;
-   int temp_bl,i;
+   //int temp_bl,i; //variable ‘temp_bl’ set but not used
    
    temp_addr = spi_addr;
    temp_bl = byte_length;

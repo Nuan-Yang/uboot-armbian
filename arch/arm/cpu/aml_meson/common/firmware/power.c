@@ -1435,7 +1435,7 @@ static int vcck_pwm_off(void)
 
 static int pwm_duty_cycle_set(int duty_high,int duty_total)
 {
-    int pwm_reg=0;
+    //int pwm_reg=0; //variable ‘pwm_reg’ set but not used
 
 #if (CONFIG_VDDEE_PWM == PWM_D)
     aml_set_reg32_bits(P_PWM_MISC_REG_CD, 0, 16, 7);  //pwm_d_clk_div

@@ -949,8 +949,8 @@ STATIC_PREFIX  int index_of_valid_ceNum(int chipnum)
 
 STATIC_PREFIX void send_plane0_cmd(unsigned page, unsigned ext, unsigned ce)
 {
-	int  /*chip_num,*/ plane_mode;
-	unsigned int /*nand_read_info,*/ ran_mode;
+	//int  /*chip_num,*/ plane_mode; //variable ‘plane_mode’ set but not used
+	//unsigned int /*nand_read_info,*/ ran_mode; //variable ‘ran_mode’ set but not used
 	unsigned char micron_nand_flag = 0;
 	unsigned page_in_blk, blk_num, /*pages_in_block,*/ plane0, plane1;
 	struct nand_page0_info_t *page0_info = (struct nand_page0_info_t *)((NAND_TEMP_BUF+384)-sizeof(struct nand_page0_info_t));
@@ -1095,10 +1095,10 @@ STATIC_PREFIX void send_plane0_cmd(unsigned page, unsigned ext, unsigned ce)
 
 STATIC_PREFIX void send_plane1_cmd(unsigned page, unsigned ext, unsigned ce)
 {
-	int  /*chip_num,*/ plane_mode;
+	//int  /*chip_num,*/ plane_mode; //variable ‘plane_mode’ set but not used
 	/* unsigned int nand_read_info; */
 	unsigned char micron_nand_flag = 0;
-	unsigned page_in_blk, blk_num, /*pages_in_block,*/ plane0, plane1;
+	unsigned page_in_blk, blk_num, /*pages_in_block,*/ /*plane0,*/ plane1; // variable ‘plane0’ set but not used
 	struct nand_page0_info_t *page0_info = (struct nand_page0_info_t *)((NAND_TEMP_BUF+384)-sizeof(struct nand_page0_info_t));
 
 	/* nand_read_info = *(volatile unsigned int *)(NAND_TEMP_BUF+sizeof(int)+sizeof(int) + sizeof(int) ); */
@@ -1165,7 +1165,7 @@ STATIC_PREFIX void send_plane1_cmd(unsigned page, unsigned ext, unsigned ce)
 
 STATIC_PREFIX void send_read_cmd(unsigned src, unsigned ext, unsigned ce)
 {
-	int  /*chip_num,*/ plane_mode;
+	//int  /*chip_num,*/ plane_mode; //variable ‘plane_mode’ set but not used
 	/* unsigned int nand_read_info; */
 	struct nand_page0_info_t *page0_info = (struct nand_page0_info_t *)((NAND_TEMP_BUF+384)-sizeof(struct nand_page0_info_t));
 
@@ -1348,7 +1348,7 @@ STATIC_PREFIX unsigned nf_read_check(volatile unsigned long long *info_buf, unsi
 
 STATIC_PREFIX short nf_normal_read_page_hwctrl(unsigned page, unsigned  mem, unsigned char *oob_buf, unsigned ext, unsigned data_size, int chipnr)
 {
-	int i, k, chip_num, plane_mode = 0, ecc_mode, newoobtype = 0, extra_len = 0;
+	int i, k, chip_num, plane_mode = 0, ecc_mode, /*newoobtype = 0,*/ extra_len = 0; //variable ‘newoobtype’ set but not used
 	unsigned long info_adr = NAND_INFO_BUF;
 	volatile unsigned long long *info_buf = (volatile unsigned long long *)NAND_INFO_BUF;
 	struct nand_page0_info_t *page0_info = (struct nand_page0_info_t *)((NAND_TEMP_BUF+384)-sizeof(struct nand_page0_info_t));

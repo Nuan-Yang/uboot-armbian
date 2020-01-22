@@ -13,7 +13,7 @@ unsigned long    clk_util_clk_msr(unsigned long   clk_mux)
 {
 	unsigned long   measured_val;
 	unsigned long   uS_gate_time=64; //64us: 1024MHz, 32us:2048MHz
-	unsigned long   dummy_rd;
+	//unsigned long   dummy_rd; //variable ‘dummy_rd’ set but not used
 
 	//set resolution
 	writel((uS_gate_time-1),P_MSR_CLK_REG0);	
