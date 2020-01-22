@@ -151,8 +151,8 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
             AML_WATCH_DOG_START();
         }
     }
-    serial_puts("Boot time:")
-    serial_put_dec(TIMERE_GET() - nTEBegin)
+    serial_puts("Boot time:");
+    serial_put_dec(TIMERE_GET() - nTEBegin);
     serial_puts(" us\nUBoot Starting...\n");
 
 #ifdef CONFIG_MESON_TRUSTZONE		
