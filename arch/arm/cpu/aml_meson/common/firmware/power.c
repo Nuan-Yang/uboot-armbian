@@ -10,7 +10,7 @@ extern unsigned char hard_i2c_read8(unsigned char SlaveAddr, unsigned char RegAd
 extern void hard_i2c_write8(unsigned char SlaveAddr, unsigned char RegAddr, unsigned char Data);
 extern unsigned char hard_i2c_read168(unsigned char SlaveAddr, unsigned short RegAddr);
 extern void hard_i2c_write168(unsigned char SlaveAddr, unsigned short RegAddr, unsigned char Data); 
-extern int raise() {return 0;}
+extern int raise(void) {return 0;}
 
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
