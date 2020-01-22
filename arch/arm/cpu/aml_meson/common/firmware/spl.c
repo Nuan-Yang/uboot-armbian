@@ -117,7 +117,8 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 	setbits_le32(P_PREG_PAD_GPIO0_O,0x3f<<22);
 	setbits_le32(P_PREG_PAD_GPIO0_EN_N,0x3f<<22);
 	clrbits_le32(P_PERIPHS_PIN_MUX_2,7<<12);  //clear sd d1~d3 pinmux
-	
+	writel(pinmux_2,P_PERIPHS_PIN_MUX_2);
+	/*
 	if(!(readl(P_PREG_PAD_GPIO0_I)&(1<<26))){  //sd_d3 low, debug board in
 		serial_puts("\nsdio debug board detected ");
 		clrbits_le32(P_AO_RTI_PIN_MUX_REG,3<<11);   //clear AO uart pinmux
@@ -126,13 +127,13 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 		if((readl(P_PREG_PAD_GPIO0_I)&(1<<22)))
 			writel(0x220,P_AO_SECURE_REG1);  //enable sdio jtag
 	}
-	else{
-		serial_puts("\nno sdio debug board detected ");
+	else{*/
+		serial_puts("\nUBoot SPL Starting...");/*
 		writel(pinmux_2,P_PERIPHS_PIN_MUX_2);
-	}
+	}*/
 #endif 
 #endif
-
+	unsigned int nTEBegin = TIMERE_GET();
 
 #ifdef AML_M6_JTAG_ENABLE
 	#ifdef AML_M6_JTAG_SET_ARM
@@ -158,10 +159,10 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 
 	//Note: Following msg is used to calculate romcode boot time
 	//         Please DO NOT remove it!
-    serial_puts("\nTE : ");
-    unsigned int nTEBegin = TIMERE_GET();
-    serial_put_dec(nTEBegin);
-    serial_puts("\nBT : ");
+    //serial_puts("\nTE : ");
+    
+    //serial_put_dec(nTEBegin);
+    serial_puts("\nBuildTime: ");
 	//Note: Following code is used to show current uboot build time
 	//         For some fail cases which in SPL stage we can not target
 	//         the uboot version quickly. It will cost about 5ms.

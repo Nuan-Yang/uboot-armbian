@@ -73,9 +73,9 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 
 	//Note: Following msg is used to calculate romcode boot time
 	//         Please DO NOT remove it!
-    serial_puts("\nTE : ");
+    //serial_puts("\nTE : ");
     unsigned int nTEBegin = TIMERE_GET();
-    serial_put_dec(nTEBegin);
+    //serial_put_dec(nTEBegin);
     serial_puts("\nBT : ");
 	//Note: Following code is used to show current uboot build time
 	//         For some fail cases which in SPL stage we can not target
@@ -97,9 +97,9 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 #endif	//CONFIG_AML_SPL_L1_CACHE_ON
 #endif//#if 0
 	   
-    serial_puts("\nTE : ");
-	serial_put_dec(TIMERE_GET());
-	serial_puts("\n");
+    //serial_puts("\nTE : ");
+	//serial_put_dec(TIMERE_GET());
+	//serial_puts("\n");
 
 #if defined(CONFIG_AML_MESON_8)
         AML_WATCH_DOG_SET(5000); //5s for secue boot check, maybe it's enough!? Dog will silently reset system if timeout...
@@ -151,8 +151,9 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
             AML_WATCH_DOG_START();
         }
     }
-
-    serial_puts("\nSystem Started\n");
+    serial_puts("Boot time:")
+    serial_put_dec(TIMERE_GET() - nTEBegin)
+    serial_puts(" us\nUBoot Starting...\n");
 
 #ifdef CONFIG_MESON_TRUSTZONE		
     return ovFlag;
