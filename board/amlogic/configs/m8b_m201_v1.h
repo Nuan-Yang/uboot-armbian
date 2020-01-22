@@ -99,9 +99,9 @@
 	#define CONFIG_AML_ETHERNET    1                   /*to link /driver/net/aml_ethernet.c*/
 	#define CONFIG_HOSTNAME        arm_m8
 	#define CONFIG_ETHADDR         00:15:18:01:81:31   /* Ethernet address */
-	#define CONFIG_IPADDR          10.18.9.97          /* Our ip address */
-	#define CONFIG_GATEWAYIP       10.18.9.1           /* Our getway ip address */
-	#define CONFIG_SERVERIP        10.18.9.113         /* Tftp server ip address */
+	#define CONFIG_IPADDR          192.168.31.254      /* Our ip address */
+	#define CONFIG_GATEWAYIP       192.168.31.1        /* Our getway ip address */
+	#define CONFIG_SERVERIP        192.168.31.199      /* Tftp server ip address */
 	#define CONFIG_NETMASK         255.255.255.0
 #endif /* (CONFIG_CMD_NET) */
 
@@ -340,7 +340,7 @@
 //----------------------------------------------------------------------
 //Please set the M8 CPU clock(unit: MHz)
 //legal value: 600, 792, 996, 1200
-#define M8_CPU_CLK 		    (792)
+#define M8_CPU_CLK 		    (996)
 #define CONFIG_SYS_CPU_CLK	(M8_CPU_CLK)
 //----------------------------------------------------------------------
 
@@ -360,7 +360,7 @@
 
 //Please just define m8 DDR clock here only
 //current DDR clock range (408~804)MHz with fixed step 12MHz
-#define CFG_DDR_CLK    636 //696 //768  //792// (636)
+#define CFG_DDR_CLK    804 //696 //768  //792// (636)
 #define CFG_DDR_MODE   CFG_DDR_32BIT
 
 #ifdef CONFIG_ACS
