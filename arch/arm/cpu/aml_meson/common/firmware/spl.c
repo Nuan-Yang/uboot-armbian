@@ -228,11 +228,11 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
     load_uboot(__TEXT_BASE,__TEXT_SIZE);
 #endif
 
-
+/*
     serial_puts("\nTE : ");
 	serial_put_dec(TIMERE_GET());
 	serial_puts("\n");
-
+*/
 	//asm volatile ("wfi");
 	// load secureOS
 #ifdef CONFIG_MESON_TRUSTZONE
@@ -247,8 +247,10 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 		serial_wait_tx_empty();    
 	}
 #endif	
-
-    serial_puts("\nSystem Started\n");
+	serial_puts("Boot time:");
+    serial_put_dec(TIMERE_GET() - nTEBegin);
+    serial_puts(" us\nUBoot Starting...\n");
+    //serial_puts("\nSystem Started\n");
 
 #ifdef TEST_UBOOT_BOOT_SPEND_TIME
 	unsigned int spl_boot_end = TIMERE_GET();
