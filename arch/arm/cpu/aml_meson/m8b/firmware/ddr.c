@@ -249,6 +249,7 @@ SPL_STATIC_FUNC unsigned ddr_init_test(void)
 #ifdef CONFIG_DDR_SIZE_AUTO_DETECT
 	ddr_size_auto_detect(&__ddr_setting);
 #else
+	ddr_info_dump(&__ddr_setting);
 #ifdef CONFIG_ACS
 	print_ddr_size(__ddr_setting.phy_memory_size);
 #else
@@ -263,13 +264,12 @@ int ddr_test_mode = 0;
 	ddr_test_mode = DDR_TEST_BASEIC;
 #endif
 
+	
 	if(ddr_test(ddr_test_mode)){
 		serial_puts("\nDDR test failed! Reset...\n");
 		__udelay(10000);
 		AML_WATCH_DOG_START();
 	}
-
-	ddr_info_dump(&__ddr_setting);
 
 #ifdef CONFIG_ACS
 	writel(((__ddr_setting.phy_memory_size)>>20), CONFIG_DDR_SIZE_IND_ADDR);

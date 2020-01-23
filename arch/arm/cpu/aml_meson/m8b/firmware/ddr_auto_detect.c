@@ -7,14 +7,14 @@ void print_ddr_mode(void){}
 #else
 void print_ddr_size(unsigned int size)
 {
-	serial_puts("DDR size: ");
+	//serial_puts("DDR size: ");
 	unsigned int mem_size = size >> 20; //MB
 	(mem_size) >= 1024 ? serial_put_dec(mem_size >> 10):serial_put_dec(mem_size);
 	(mem_size) >= 1024 ? serial_puts("GB"):serial_puts("MB");
 #ifdef CONFIG_DDR_SIZE_AUTO_DETECT
 	serial_puts(" (auto)\n");
 #else
-	serial_puts("\n");
+	serial_puts(" DDR3\n");
 #endif
 }
 
@@ -24,16 +24,16 @@ void print_ddr_mode(void){
 		case CFG_DDR_NOT_SET:
 			serial_puts("Not Set"); break;
 		case CFG_DDR_32BIT:
-			serial_puts("32 bit mode"); break;
+			serial_puts(" 32b"); break;
 		case CFG_DDR_16BIT_LANE02:
-			serial_puts("16 bit mode lane0+2"); break;
+			serial_puts(" 16b lane0+2"); break;
 		case CFG_DDR_16BIT_LANE01:
-			serial_puts("16 bit mode lane0+1"); break;
+			serial_puts(" 16b lane0+1"); break;
 	}
 #ifdef CONFIG_DDR_MODE_AUTO_DETECT
 	serial_puts(" (auto)\n");
 #else
-	serial_puts("\n");
+	//serial_puts("");
 #endif
 }
 #endif

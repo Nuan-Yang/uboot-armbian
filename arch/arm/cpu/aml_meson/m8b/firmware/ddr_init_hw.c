@@ -106,25 +106,25 @@ void ddr_info_dump(struct ddr_set * timing_set)
 #ifdef CONFIG_DUMP_DDR_INFO
 	int nPLL = readl(AM_DDR_PLL_CNTL);
 	int nDDRCLK = 2*((24 / ((nPLL>>9)& 0x1F) ) * (nPLL & 0x1FF))/ (1<<((nPLL>>16) & 0x3));
-	serial_puts("DDR clock: ");
+	serial_puts("DDR: ");
 #ifdef CONFIG_DDR_BYPASS_PHY_PLL
 	nDDRCLK=nDDRCLK/4;
 #endif
-	serial_put_dec(nDDRCLK);
-	serial_puts("MHz with ");
+	serial_put_dec(nDDRCLK * 2);
+	serial_puts("MHz DDR3");
 #ifdef CONFIG_DDR_LOW_POWER
-	serial_puts("Low Power & ");
+	serial_puts("L ");
 #endif
 	if((timing_set->t_pctl_mcfg) & (1<<3)) //DDR0, DDR1 same setting?
-		serial_puts("2T mode\n");
+		serial_puts("2T ");
 	else
-		serial_puts("1T mode\n");
+		serial_puts("1T\n");
 #endif
-
+/*
 #ifdef CONFIG_DDR_BYPASS_PHY_PLL
 	serial_puts("DDR pll bypass: Enabled");
 #else
 	serial_puts("DDR pll bypass: Disabled");
-#endif
+#endif*/
 }
 #endif 
