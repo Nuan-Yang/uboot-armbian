@@ -128,7 +128,7 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 			writel(0x220,P_AO_SECURE_REG1);  //enable sdio jtag
 	}
 	else{*/
-		serial_puts("\nUBoot SPL Starting...");/*
+		/*
 		writel(pinmux_2,P_PERIPHS_PIN_MUX_2);
 	}*/
 #endif 
@@ -162,7 +162,8 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
     //serial_puts("\nTE : ");
     
     //serial_put_dec(nTEBegin);
-    serial_puts("\nBuildTime: ");
+	serial_puts("\nUBoot SPL (");
+    //serial_puts("\nBuild: ");
 	//Note: Following code is used to show current uboot build time
 	//         For some fail cases which in SPL stage we can not target
 	//         the uboot version quickly. It will cost about 5ms.
@@ -170,7 +171,7 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 	serial_puts(__TIME__);
 	serial_puts(" ");
 	serial_puts(__DATE__);
-	serial_puts("\n");	
+	serial_puts(") for Onecloud\n");	
 
 #ifdef CONFIG_POWER_SPL
     power_init(POWER_INIT_MODE_NORMAL);
@@ -198,18 +199,18 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 		nPLL = readl(P_HHI_SYS_PLL_CNTL);
 		nA9CLK = ((24 / ((nPLL>>9)& 0x1F) ) * (nPLL & 0x1FF))/ (1<<((nPLL>>16) & 0x3));
 	}
-	serial_puts("\nCPU clock is ");
+	serial_puts("\nCPU: Amlogic S805 Quad Cortex-A5 up to 1.8GHz running at");
 	serial_put_dec(nA9CLK);
 	serial_puts("MHz\n\n");
 
-    nTEBegin = TIMERE_GET();
+    //nTEBegin = TIMERE_GET();
 
     // initial ddr
     ddr_init_test();
 
-    serial_puts("\nDDR init use : ");
-    serial_put_dec(get_utimer(nTEBegin));
-    serial_puts(" us\n");
+    //serial_puts("\nDDR init use : ");
+    //serial_put_dec(get_utimer(nTEBegin));
+    //serial_puts(" us\n");
 
 #if defined(CONFIG_AML_A5) && defined(CONFIG_AML_SECU_BOOT_V2) && defined(CONFIG_AML_SPL_L1_CACHE_ON)
     asm volatile ("ldr	sp, =(0x12000000)");
@@ -247,8 +248,8 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 		serial_wait_tx_empty();    
 	}
 #endif	
-	serial_puts("Boot time:");
-    serial_put_dec(TIMERE_GET() - nTEBegin);
+	serial_puts("SPL time:");
+    serial_put_dec(get_utimer(nTEBegin));
     serial_puts(" us\nUBoot Starting...\n");
     //serial_puts("\nSystem Started\n");
 

@@ -3,7 +3,7 @@
 
 #define CONFIG_MACH_MESON8_M201  // generate M8 M201 machid number
 
-#define CONFIG_POWER_SPL
+//#define CONFIG_POWER_SPL
 #ifdef CONFIG_M201_COSTDOWN
 #define CONFIG_PWM_VDDEE_VOLTAGE            1100   //VDDEE voltage when boot, must have
 #else
