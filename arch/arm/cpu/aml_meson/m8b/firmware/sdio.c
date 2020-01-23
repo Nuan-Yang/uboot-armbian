@@ -164,14 +164,14 @@ STATIC_PREFIX int sdio_read(unsigned target,unsigned size,unsigned por_sel)
    
    cmd_clk_divide=__plls.sdio_cmd_clk_divide;
    SD_boot_type=sdio_get_port(por_sel);
-	serial_puts("SD_boot_type: ");
-	serial_put_hex(SD_boot_type, 32);
-	serial_puts("\n");
+	//serial_puts("SD_boot_type: ");
+	//serial_put_hex(SD_boot_type, 32);
+	//serial_puts("\n");
    unsigned card_type=(romboot_info->ext>>4)&0xf;
    unsigned switch_status[16];
-   serial_puts("card_type: ");
-	serial_put_hex(card_type, 32);
-	serial_puts("\n");
+   //serial_puts("card_type: ");
+	//serial_put_hex(card_type, 32);
+	//serial_puts("\n");
 
 //register.h: #define SDIO_AHB_CBUS_CTRL 0x2318
 //#define SDIO_AHB_CBUS_CTRL          (volatile unsigned long *)0xc1108c60   
@@ -198,11 +198,11 @@ STATIC_PREFIX int sdio_read(unsigned target,unsigned size,unsigned por_sel)
 
    bus_width = 0;
     if((SD_boot_type != 2) || (card_type != CARD_TYPE_EMMC)){
-	    serial_puts("check SD_boot_type:0x");
-        serial_put_dec(SD_boot_type);
-        serial_puts("\t card_type:0x");
-        serial_put_dec(card_type);
-        serial_puts("\n");
+	    //serial_puts("check SD_boot_type:0x");
+        //serial_put_dec(SD_boot_type);
+        //serial_puts("\t card_type:0x");
+        //serial_put_dec(card_type);
+        //serial_puts("\n");
         goto DATA_READ;        
     }
     

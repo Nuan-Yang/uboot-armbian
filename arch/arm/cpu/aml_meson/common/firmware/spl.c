@@ -250,7 +250,7 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 #endif	
 	serial_puts("SPL time:");
     serial_put_dec(get_utimer(nTEBegin));
-    serial_puts(" us\nUBoot Starting...\n");
+    serial_puts(" us\nStarting...");
     //serial_puts("\nSystem Started\n");
 
 #ifdef TEST_UBOOT_BOOT_SPEND_TIME

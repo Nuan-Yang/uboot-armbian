@@ -216,7 +216,7 @@ unsigned ddr_test(int arg)
 		}
 	}
 #if !defined(CONFIG_AML_EXT_PGM)
-	serial_puts(" OK");
+	serial_puts("OK");
 #endif
 	//AML_WATCH_DOG_DISABLE();
 	return por_cfg;

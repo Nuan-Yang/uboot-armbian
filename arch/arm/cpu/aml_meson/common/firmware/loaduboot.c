@@ -58,7 +58,7 @@ SPL_STATIC_FUNC int load_uboot(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 	int rc=0;
 
 #if !defined(CONFIG_AML_EXT_PGM)
-    serial_puts("\nHHH\n");
+    //serial_puts("\nHHH\n");
 #endif
 
 #if defined(CONFIG_AML_SMP) && !defined(CONFIG_AML_EXT_PGM)
@@ -146,7 +146,7 @@ SPL_STATIC_FUNC int load_uboot(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 #endif
 	}
 #endif
-	fw_print_info(por_cfg,1);
+	//fw_print_info(por_cfg,1);
 
     return rc;
 }

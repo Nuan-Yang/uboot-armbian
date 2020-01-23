@@ -215,11 +215,11 @@ m8_tpl_ucl_dec:
 	//unsigned len;    
     if(rc==0){
 		#if !defined(CONFIG_AML_EXT_PGM)
-        serial_puts("ucl decompress...");
+        serial_puts("Decompress...");
 		#endif
         rc=uclDecompress((char*)target,&len,(char*)temp_addr);
 		#if !defined(CONFIG_AML_EXT_PGM)
-        serial_puts(rc?"fail\n":"pass\n");
+        serial_puts(rc?" Fail\n":" OK\n");
 		#endif
     }
 #endif    
@@ -302,9 +302,9 @@ m8_tpl_ucl_dec:
 
 	//unsigned len;
     if(!rc){
-	    serial_puts("ucl decompress...");
+	    serial_puts("Decompress...");
 	    rc=uclDecompress((char*)target,&len,(char*)temp_addr);
-        serial_puts(rc?"fail\n":"pass\n");
+        serial_puts(rc?" Fail\n":" OK\n");
     }
 #endif    
 #endif
