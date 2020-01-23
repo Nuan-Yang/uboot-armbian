@@ -134,6 +134,7 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 #endif 
 #endif
 	unsigned int nTEBegin = TIMERE_GET();
+	nTEBegin = TIMERE_GET();
 
 #ifdef AML_M6_JTAG_ENABLE
 	#ifdef AML_M6_JTAG_SET_ARM
