@@ -1,4 +1,4 @@
--#define  CONFIG_AMLROM_SPL 1
+#define  CONFIG_AMLROM_SPL 1
 #include <config.h>
 #include <asm/arch/cpu.h>
 #include <asm/arch/timer.h>
