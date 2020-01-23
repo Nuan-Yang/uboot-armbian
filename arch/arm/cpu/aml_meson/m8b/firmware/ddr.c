@@ -216,7 +216,7 @@ unsigned ddr_test(int arg)
 		}
 	}
 #if !defined(CONFIG_AML_EXT_PGM)
-	serial_puts("DDR check: Pass!\n");
+	serial_puts(" OK /arch/arm/cpu/aml_meson/m8b/firmware/ddr.c\n");
 #endif
 	//AML_WATCH_DOG_DISABLE();
 	return por_cfg;

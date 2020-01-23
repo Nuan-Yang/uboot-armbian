@@ -162,7 +162,7 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
     //serial_puts("\nTE : ");
     
     //serial_put_dec(nTEBegin);
-	serial_puts("\nUBoot SPL (");
+	serial_puts("\n\nUBoot SPL (");
     //serial_puts("\nBuild: ");
 	//Note: Following code is used to show current uboot build time
 	//         For some fail cases which in SPL stage we can not target
@@ -171,7 +171,7 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 	serial_puts(__TIME__);
 	serial_puts(" ");
 	serial_puts(__DATE__);
-	serial_puts(") for Onecloud\n");	
+	serial_puts(") for Onecloud\n\n");	
 
 #ifdef CONFIG_POWER_SPL
     power_init(POWER_INIT_MODE_NORMAL);
@@ -199,9 +199,9 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 		nPLL = readl(P_HHI_SYS_PLL_CNTL);
 		nA9CLK = ((24 / ((nPLL>>9)& 0x1F) ) * (nPLL & 0x1FF))/ (1<<((nPLL>>16) & 0x3));
 	}
-	serial_puts("\nCPU: Amlogic S805 Quad Cortex-A5 up to 1.8GHz running at");
+	serial_puts("CPU: Amlogic S805 Quad Cortex-A5 up to 1.8GHz running at ");
 	serial_put_dec(nA9CLK);
-	serial_puts("MHz\n\n");
+	serial_puts("MHz\n");
 
     //nTEBegin = TIMERE_GET();
 

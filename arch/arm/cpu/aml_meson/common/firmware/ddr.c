@@ -417,7 +417,7 @@ SPL_STATIC_FUNC unsigned ddr_init_test(void)
 {
     int i;
     unsigned ret=0;
-    //serial_putc('\n');
+    serial_putc('ddr.c');
     ddr_pll_init(&__ddr_setting);
 
 #ifdef CONFIG_ENABLE_MEM_DEVICE_TEST
