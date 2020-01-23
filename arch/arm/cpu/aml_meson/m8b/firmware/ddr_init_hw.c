@@ -111,7 +111,7 @@ void ddr_info_dump(struct ddr_set * timing_set)
 	nDDRCLK=nDDRCLK/4;
 #endif
 	serial_put_dec(nDDRCLK * 2);
-	serial_puts("MHz DDR3");
+	serial_puts("MHz ");
 #ifdef CONFIG_DDR_LOW_POWER
 	serial_puts("L ");
 #endif

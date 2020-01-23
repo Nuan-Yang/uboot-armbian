@@ -14,12 +14,12 @@ void print_ddr_size(unsigned int size)
 #ifdef CONFIG_DDR_SIZE_AUTO_DETECT
 	serial_puts(" (auto)\n");
 #else
-	serial_puts(" DDR3\n");
+	serial_puts(" DDR3 ");
 #endif
 }
 
 void print_ddr_mode(void){
-	serial_puts("DDR mode: ");
+	//serial_puts("DDR: ");
 	switch(cfg_ddr_mode){
 		case CFG_DDR_NOT_SET:
 			serial_puts("Not Set"); break;

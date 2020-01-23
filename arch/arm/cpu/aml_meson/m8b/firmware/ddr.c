@@ -216,7 +216,7 @@ unsigned ddr_test(int arg)
 		}
 	}
 #if !defined(CONFIG_AML_EXT_PGM)
-	serial_puts(" OK /arch/arm/cpu/aml_meson/m8b/firmware/ddr.c\n");
+	serial_puts(" OK");
 #endif
 	//AML_WATCH_DOG_DISABLE();
 	return por_cfg;
@@ -237,13 +237,13 @@ SPL_STATIC_FUNC unsigned ddr_init_test(void)
 #ifdef CONFIG_DDR_MODE_AUTO_DETECT
 	ddr_mode_auto_detect(&__ddr_setting);
 #else
+	//print_ddr_mode();
 	if(ddr_init(&__ddr_setting))
 	{
 		serial_puts("\nDDR init fail! Reset...\n");
 		__udelay(10000);
 		AML_WATCH_DOG_START();
 	}
-	print_ddr_mode();
 #endif
 
 #ifdef CONFIG_DDR_SIZE_AUTO_DETECT
