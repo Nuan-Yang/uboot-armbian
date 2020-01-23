@@ -10,8 +10,8 @@
 #define CONFIG_PWM_VDDEE_VOLTAGE            1100   //VDDEE voltage when boot, must have
 #endif
 #define CONFIG_PWM_VDDEE_SUSPEND_VOLTAGE    1100 //VDDEE voltage when suspend, must have
-#define CONFIG_IR_REMOTE_WAKEUP 1
-#define CONFIG_SECURITYKEY
+//#define CONFIG_IR_REMOTE_WAKEUP 1
+//#define CONFIG_SECURITYKEY
 //#define TEST_UBOOT_BOOT_SPEND_TIME
 
 // cart type of each port
@@ -22,7 +22,7 @@
 //UART Sectoion
 #define CONFIG_CONS_INDEX   2
 
-#define CONFIG_NEXT_NAND
+//#define CONFIG_NEXT_NAND
 //#define CONFIG_SECURE_NAND  1
 //support "boot,bootd"
 //#define CONFIG_CMD_BOOTD 1
@@ -32,7 +32,7 @@
 //#define CONFIG_VIDEO_AMLTVOUT 1
 //Enable LCD output
 //#define CONFIG_VIDEO_AMLLCD
-#define LCD_BPP LCD_COLOR16
+//#define LCD_BPP LCD_COLOR16
 
 #define CONFIG_ACS
 #ifdef CONFIG_ACS
@@ -53,7 +53,7 @@
 
 //Enable storage devices
 #define CONFIG_CMD_CPU_TEMP
-#define CONFIG_CMD_NAND  1
+//#define CONFIG_CMD_NAND  1
 #define CONFIG_VIDEO_AML 1
 #define CONFIG_CMD_BMP 1
 #define CONFIG_VIDEO_AMLTVOUT 1
@@ -360,12 +360,12 @@
 
 //Please just define m8 DDR clock here only
 //current DDR clock range (408~804)MHz with fixed step 12MHz
-#define CFG_DDR_CLK    804 //696 //768  //792// (636)
+#define CFG_DDR_CLK    912 //696 //768  //792// (636)
 #define CFG_DDR_MODE   CFG_DDR_32BIT
 
 #ifdef CONFIG_ACS
 //#define CONFIG_DDR_MODE_AUTO_DETECT	//ddr bus-width auto detection
-#define CONFIG_DDR_SIZE_AUTO_DETECT	//ddr size auto detection
+//#define CONFIG_DDR_SIZE_AUTO_DETECT	//ddr size auto detection
 #endif
 
 //On board DDR capactiy
@@ -475,7 +475,7 @@
 #define CONFIG_JOIN_UBOOT_SECUREOS 1
 #define SECUREOS_KEY_BASE_ADDR 0x06100000
 #define SECURE_OS_DECOMPRESS_ADDR 0x06200000
-#define CONFIG_SECURE_STORAGE_BURNED
+//#define CONFIG_SECURE_STORAGE_BURNED
 #ifdef CONFIG_SECURE_STORAGE_BURNED
 #define CONFIG_MESON_STORAGE_BURN 1
 #define CONFIG_MESON_STORAGE_DEBUG
