@@ -10,6 +10,7 @@ if [ ! -d toolchain ]; then
 fi
 
 export PATH=$PATH:/`pwd`/toolchain/Sourcery_G++_Lite/bin 
+make clean
 make m8b_m201_1G_config
 make -j`nproc` firmware
 echo "********************"

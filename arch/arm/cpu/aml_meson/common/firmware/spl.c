@@ -172,7 +172,7 @@ unsigned main(unsigned __TEXT_BASE,unsigned __TEXT_SIZE)
 	serial_puts(__TIME__);
 	serial_puts(" ");
 	serial_puts(__DATE__);
-	serial_puts(") for Onecloud\n\n");	
+	serial_puts(") for Onecloud\nBuilt By Lin. <767763591@qq.com>\n\n");
 
 #ifdef CONFIG_POWER_SPL
     power_init(POWER_INIT_MODE_NORMAL);

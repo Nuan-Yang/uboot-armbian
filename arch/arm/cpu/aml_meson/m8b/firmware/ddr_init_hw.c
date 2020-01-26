@@ -106,7 +106,7 @@ void ddr_info_dump(struct ddr_set * timing_set)
 #ifdef CONFIG_DUMP_DDR_INFO
 	int nPLL = readl(AM_DDR_PLL_CNTL);
 	int nDDRCLK = 2*((24 / ((nPLL>>9)& 0x1F) ) * (nPLL & 0x1FF))/ (1<<((nPLL>>16) & 0x3));
-	serial_puts("DDR: ");
+	serial_puts("MEM: ");
 #ifdef CONFIG_DDR_BYPASS_PHY_PLL
 	nDDRCLK=nDDRCLK/4;
 #endif
@@ -118,7 +118,7 @@ void ddr_info_dump(struct ddr_set * timing_set)
 	if((timing_set->t_pctl_mcfg) & (1<<3)) //DDR0, DDR1 same setting?
 		serial_puts("2T ");
 	else
-		serial_puts("1T\n");
+		serial_puts("1T ");
 #endif
 /*
 #ifdef CONFIG_DDR_BYPASS_PHY_PLL
